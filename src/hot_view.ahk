@@ -102,8 +102,13 @@ class hot_view {
         options := 'x0 y0 +BackgroundBlack -VScroll -Wrap +Border'
         goo.AddText(options, this.get_text(hot_type))
         if (this.show_coords.x is Number && this.show_coords.y is Number)
-        MouseGetPos(&mx, &my)
-        goo.Show('x' (mx + 10) ' y' (my + 10) ' AutoSize')
+            x := this.show_coords.x
+            ,y := this.show_coords.y
+        else MouseGetPos(&mx, &my)
+            ,x := mx + 10
+            ,y := my + 10
+        
+        goo.Show('x' x ' y' y ' AutoSize')
         this.gui := goo
     }
     
