@@ -23,3 +23,17 @@ Methods:
 
   The `hot_type` parameter should be one of the following: 'hotkey', 'hotstring', or 'both'  
   If omitted, 'both` is used by default.  
+
+***
+
+Example of using Hot View:
+
+```
+#Include hot_view.ahk
+
+; Give these hotkeys and hotstrings a try
+*F1::hot_view.toggle_view('both')                 ; Toggle view of both hotkeys and hotstrings
+*F2::hot_view.hold_to_view('hotkeys')             ; Hold to show only hotkeys
+*F3::hot_view.hold_to_view('hotstrings')          ; Hold to show only hotstrings
+:*?X:/showhot::hot_view.toggle_view()             ; Hotstring to toggle view
+```
