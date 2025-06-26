@@ -55,10 +55,10 @@ class hot_view {
     static __New() => this.generate_hot_lists()
     
     static generate_hot_lists(path:=A_ScriptFullPath) {
-        if !FileExist(newpath)
-            newpath := A_ScriptDir '\' newpath
-        if !FileExist(newpath)
-            continue
+        if !FileExist(path)
+            path := A_ScriptDir '\' path
+        if !FileExist(path)
+            return
         rgx := this.rgx
         rgx := {
             hotkey: 'i)^([#!\^+<>*~$]*\S+(?: Up)?::.*?)$',
@@ -85,8 +85,8 @@ class hot_view {
             else if RegExMatch(A_LoopField, rgx.hotkey, &match)                                     ; Hotkey check after hotstrings (easier matching)
                 hotkeys .= '`n' match[]
             else if RegExMatch(A_LoopField, rgx.include, &match) {                                  ; Process #included files
-                newpath := match[1]
-                this.generate_hot_lists(newpath)
+                path := match[1]
+                this.generate_hot_lists(path)
             }
         }
         
