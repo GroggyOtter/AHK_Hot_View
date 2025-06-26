@@ -1,7 +1,8 @@
 # Hot View
 
 A class for AHK v2 that allows you to view the active hotkeys and hotstrings in the current script.  
-Either hotkeys, hotstrings, or both can be displayed in a gui.
+Either hotkeys, hotstrings, or both can be displayed in a gui.  
+The gui can be clicked and dragged around.
 
 Properties:  
 * `hot_view.show_coords` - An object containing and `x` and `y` property.  
