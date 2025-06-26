@@ -2,34 +2,34 @@ class hot_view {
     #Requires AutoHotkey v2.0.19+
     
     /**
-        * Object containing x and y coords to show hotkeys
-        * If x or y is a non-number, the gui will appear right of the mouse
-        * If an x and y number are provided, that will be the static location of the displayed gui
-        * By default, the gui appears by the mouse
-        */
+     * Object containing x and y coords to show hotkeys
+     * If x or y is a non-number, the gui will appear right of the mouse
+     * If an x and y number are provided, that will be the static location of the displayed gui
+     * By default, the gui appears by the mouse
+     */
     static show_coords := {
         x : '',
         y : ''
     }
     
     /**
-        * Toggle view of the script's hotkeys and/or hotstrings
-        * hot_type should be: 'hotkey', 'hotstring', or 'both'
-        * If no hot_type is provided, 'both' is used by default
-        * @param {String} [hot_type]  
-        * Should be the word 'hotkey', 'hotstring', or 'both'  
-        * If omitted, 'both' is used by default
-        */
+     * Toggle view of the script's hotkeys and/or hotstrings
+     * hot_type should be: 'hotkey', 'hotstring', or 'both'
+     * If no hot_type is provided, 'both' is used by default
+     * @param {String} [hot_type]  
+     * Should be the word 'hotkey', 'hotstring', or 'both'  
+     * If omitted, 'both' is used by default
+     */
     static toggle_view(hot_type := 'both') => this.gui ? this.gui_destroy() : this.make_gui(hot_type)
     
     /**
-        * Hold-to-view the script's hotkeys and/or hotstrings
-        * hot_type should be: 'hotkey', 'hotstring', or 'both'
-        * If no hot_type is provided, 'both' is used by default
-        * @param {String} [hot_type]  
-        * Should be the word 'hotkey', 'hotstring', or 'both'  
-        * If omitted, 'both' is used by default
-        */
+     * Hold-to-view the script's hotkeys and/or hotstrings
+     * hot_type should be: 'hotkey', 'hotstring', or 'both'
+     * If no hot_type is provided, 'both' is used by default
+     * @param {String} [hot_type]  
+     * Should be the word 'hotkey', 'hotstring', or 'both'  
+     * If omitted, 'both' is used by default
+     */
     static hold_to_view(hot_type := 'both') {
         key := this.strip_mod(A_ThisHotkey)
         if this.gui
