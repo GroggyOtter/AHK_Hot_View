@@ -107,9 +107,15 @@ class hot_view {
         else MouseGetPos(&mx, &my)
             ,x := mx + 10
             ,y := my + 10
-        
+        OnMessage(WM_MOUSEMOVE := 0x0200, on_mouse_move)
         goo.Show('x' x ' y' y ' AutoSize')
         this.gui := goo
+        return goo
+        
+        on_mouse_move(Wparam, Lparam, Msg, Hwnd) {
+            if (Wparam = 1)
+                SendMessage(WM_NCLBUTTONDOWN := 0x00A1, 2,,, 'ahk_id ' this.gui.hwnd)
+        }
     }
     
     static get_text(hot_type) {
